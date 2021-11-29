@@ -43,3 +43,6 @@ CONSTRAINT f_cod_corsista FOREIGN KEY cod_corsista REFERENCES corsista(cod_corsi
 CONSTRAINT f_cod_corso FOREIGN KEY cod_corso REFERENCES corso(cod_corso),
 CONSTRAINT p_corso_corsista PRIMARY KEY (cod_corso, cod_corsista)
 );
+
+CREATE sequence corso_seq;
+CREATE sequence corsista_seq;
