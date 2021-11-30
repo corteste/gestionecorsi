@@ -17,6 +17,9 @@ public interface DAOCostants {
 	
 	//END
 	//CORSISTI
+	public static final String SELECT_CORSISTI = "select cod_corsista, nome_corsista, cognome_corsista from corsista";
+	public static final String SELECT_CORSISTA_BY_ID = "select * from corsista where cod_corsista = ?";
+	public static final String DELETE_CORSISTA = "delete from corsista where cod_corsista = ?";
 	//END
 	//CORSOCORSISTI
 	//END
