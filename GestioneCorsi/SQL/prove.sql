@@ -88,11 +88,11 @@ HAVING COUNT(MATERIE) = (SELECT MAX(COUNT(MATERIE))
 
 --8
 SELECT COD_CORSO,COUNT(COD_CORSISTA)
-FROM CORSO_CORSITA 
+FROM CORSO_CORSISTA 
 GROUP BY(COD_CORSO)
 HAVING COUNT(COD_CORSISTA) = ( SELECT MIN(COUNT(COD_CORSISTA))
                                FROM CORSO_CORSISTA
-                               GROUP BY COD_CORSISTA       
+                               GROUP BY COD_CORSO      
                             )
                             
 
