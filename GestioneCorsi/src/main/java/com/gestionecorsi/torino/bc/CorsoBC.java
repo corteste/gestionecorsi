@@ -1,4 +1,4 @@
-package com.gestionecorso.torino.bc;
+package com.gestionecorsi.torino.bc;
 
 public class CorsoBC {
 
