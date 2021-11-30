@@ -39,8 +39,8 @@ CONSTRAINT p_cod_docente PRIMARY KEY (cod_docente)
 CREATE TABLE corso_corsista(
 cod_corso int,
 cod_corsista int,
-CONSTRAINT f_cod_corsista FOREIGN KEY cod_corsista REFERENCES corsista(cod_corsista),
-CONSTRAINT f_cod_corso FOREIGN KEY cod_corso REFERENCES corso(cod_corso),
+CONSTRAINT f_cod_corsista FOREIGN KEY (cod_corsista) REFERENCES corsista(cod_corsista),
+CONSTRAINT f_cod_corso FOREIGN KEY (cod_corso) REFERENCES corso(cod_corso),
 CONSTRAINT p_corso_corsista PRIMARY KEY (cod_corso, cod_corsista)
 );
 
