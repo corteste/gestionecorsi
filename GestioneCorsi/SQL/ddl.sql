@@ -8,7 +8,7 @@ costo_corso number(7,2),
 commenti_corso varchar2(200),
 aula_corso varchar2(30),
 cod_docente char(5),
-CONSTRAINT p_cod_corso PRIMARY KEY (cod_corso)
+CONSTRAINT p_cod_corso PRIMARY KEY (cod_corso),
 CONSTRAINT f_cod_docente FOREIGN KEY (cod_docente) REFERENCES docente(cod_docente)
 );
 
