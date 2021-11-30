@@ -26,7 +26,7 @@ public abstract class CorsistaDAOAdapter implements CrudOperation<Corsista> {
 	}
 
 	@Override
-	public void removeFromModel(Connection conn, Corsista model) {
+	public void removeByModel(Connection conn, Corsista model) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -26,7 +26,7 @@ public abstract class CorsoDAOAdapter implements CrudOperation<Corso> {
 	}
 
 	@Override
-	public void removeFromModel(Connection conn, Corso model) {
+	public void removeByModel(Connection conn, Corso model) {
 		// TODO Auto-generated method stub
 		
 	}

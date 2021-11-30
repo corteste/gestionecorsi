@@ -7,7 +7,7 @@ public interface CrudOperation<T> {
 	public void createFromModel(Connection conn,T model);
 	public T getModelByNumericalId(Connection conn,long id);
 	public T getModelByString(Connection conn,String id);
-	public void removeFromModel(Connection conn,T model);
+	public void removeByModel(Connection conn,T model);
 	public T[] getAll(Connection conn);
 
 }

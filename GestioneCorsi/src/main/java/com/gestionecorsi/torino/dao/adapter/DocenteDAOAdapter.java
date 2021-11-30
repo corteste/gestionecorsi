@@ -26,7 +26,7 @@ public abstract class DocenteDAOAdapter implements CrudOperation<Docente> {
 	}
 
 	@Override
-	public void removeFromModel(Connection conn, Docente model) {
+	public void removeByModel(Connection conn, Docente model) {
 		// TODO Auto-generated method stub
 		
 	}
