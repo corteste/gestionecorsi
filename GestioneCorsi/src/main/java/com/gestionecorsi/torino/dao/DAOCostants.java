@@ -38,5 +38,9 @@ public interface DAOCostants {
 			+ "WHERE CORSO.COD_CORSO = CORSO_POSTI_DISPONIBILI.COD_CORSO\r\n";
 		
 	//END
+	
+	//SEQUENZE
+	public static final String SELECT_ID_CORSO = "SELECT CORSO_SEQ.NEXTVAL FROM DUAL";
+	//END
 
 }
