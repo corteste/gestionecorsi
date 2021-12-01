@@ -3,6 +3,9 @@ package com.gestionecorsi.torino.dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.gestionecorsi.torino.dao.adapter.DocenteDAOAdapter;
 import com.gestionecorsi.torino.model.Docente;
 import java.sql.PreparedStatement;
@@ -53,30 +56,29 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 	 * Daniel Cobas
 	 */
 	@Override
-	public Docente[] getAll(Connection conn) throws SQLException {
-		Docente[] docente = null;
+	public List<Docente> getAll(Connection conn) throws SQLException {
+		List<Docente> ld = new ArrayList<Docente>();
+	
 		try {
 			Statement stmt = conn.createStatement(
 					ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = stmt.executeQuery(SELECT_DOCENTE_BY_ID);
-			rs.last();
-			docente = new Docente[rs.getRow()];
 			rs.isBeforeFirst();
 			
-			for (int i = 0; rs.next(); i++) {
+			for (; rs.next();) {
 				Docente d = new Docente();
 				d.setCodDocente(rs.getString(5));
 				d.setNomeDocente(rs.getString(30));
 				d.setCognomeDocente(rs.getString(30));
 				d.setCvDocente(rs.getString(100));
-				docente[i] = d;
+				ld.add(d);
 			}
 			rs.close();
 		} catch (SQLException sql) {
 			throw new SQLException(); // Manca la classe DAOException
 		}
- 		return docente;
+ 		return ld;
 	}
 	
 	
