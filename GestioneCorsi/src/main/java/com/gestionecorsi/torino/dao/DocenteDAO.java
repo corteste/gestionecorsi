@@ -80,9 +80,7 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 		} catch (SQLException sql) {
 			throw new SQLException(); // Manca la classe DAOException
 		}
- 		return docente;
+ 		return ld;
 	}
-	
-	
 	
 }
