@@ -41,4 +41,14 @@ public class DocenteBC {
 		}	
 		return docenti;
 	}
+	
+	public String getDocenteMostCorsi(Connection conn) throws SQLException {
+		String codiceDocente = null;
+		try {
+			codiceDocente = DocenteDAO.getFactory().getDocenteMostCorsi(conn);
+		} catch (SQLException e) {
+			throw new SQLException();
+		}
+		return codiceDocente;
+	}
 }
