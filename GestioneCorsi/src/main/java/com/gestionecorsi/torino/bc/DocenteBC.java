@@ -10,6 +10,11 @@ import com.gestionecorsi.torino.dao.DocenteDAO;
 import com.gestionecorsi.torino.dbaccess.DBAccess;
 import com.gestionecorsi.torino.model.Docente;
 
+/**
+ * 
+ * @author Ayoub
+ *
+ */
 public class DocenteBC {
 	private Connection conn;
 	
