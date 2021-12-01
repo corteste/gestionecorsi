@@ -14,6 +14,11 @@ import com.gestionecorsi.torino.dao.DocenteDAO;
 import com.gestionecorsi.torino.dbaccess.DBAccess;
 import com.gestionecorsi.torino.model.Docente;
 
+/**
+ * 
+ * @author Stefano Cortese
+ *
+ */
 class DocenteDAOTest {
 
 	@Test
@@ -39,6 +44,7 @@ class DocenteDAOTest {
 			docenti = DocenteDAO.getFactory().getAll(connection);
 			assertNotNull(docenti);
 			System.out.println(docenti.get(1).getCodDocente() + " " + docenti.get(1).getNomeDocente());
+			DBAccess.closeConnection();
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			fail(e.getMessage());
 		} 
