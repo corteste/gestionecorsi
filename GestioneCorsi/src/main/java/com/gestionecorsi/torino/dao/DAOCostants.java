@@ -26,6 +26,7 @@ public interface DAOCostants {
 	//END
 	//DOCENTE
 	public static final String SELECT_DOCENTE_BY_ID = "SELECT cod_docente, nome_docente, cognome_docente, cv_docente FROM Docente WHERE cod_docente = ?";
+	public static final String SELECT_DOCENTI = "SELECT cod_docente, nome_docente, cognome_docente, cv_docente FROM Docente";
 	//END
 	//LOGIN_ADMIN
 	//END

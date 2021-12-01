@@ -63,17 +63,17 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 			Statement stmt = conn.createStatement(
 					ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_READ_ONLY);
-			ResultSet rs = stmt.executeQuery(SELECT_DOCENTE_BY_ID);
+			ResultSet rs = stmt.executeQuery(SELECT_DOCENTI);
 			rs.last();
 			docente = new ArrayList<Docente>(rs.getRow());
-			rs.isBeforeFirst();
+			rs.beforeFirst();
 			
-			for (int i = 0; rs.next(); i++) {
+			while (rs.next()) {
 				Docente d = new Docente();
-				d.setCodDocente(rs.getString(5));
-				d.setNomeDocente(rs.getString(30));
-				d.setCognomeDocente(rs.getString(30));
-				d.setCvDocente(rs.getString(100));
+				d.setCodDocente(rs.getString(1));
+				d.setNomeDocente(rs.getString(2));
+				d.setCognomeDocente(rs.getString(3));
+				d.setCvDocente(rs.getString(4));
 				docente.add(d);
 			}
 			rs.close();
