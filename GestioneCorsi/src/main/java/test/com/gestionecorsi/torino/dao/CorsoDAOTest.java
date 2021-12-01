@@ -48,6 +48,18 @@ class CorsoDAOTest {
 			fail(e.getMessage());
 		} 
 	}
+	
+	@Test
+	void removeByModel() {
+		try {
+			CorsoDAO.getFactory().removeByModel(DBAccess.getConnection(), c);
+		} catch (ClassNotFoundException | SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			fail(e.getMessage());
+		} 
+	}
+	
+	
 	@AfterAll
   static void clean() {
 		
