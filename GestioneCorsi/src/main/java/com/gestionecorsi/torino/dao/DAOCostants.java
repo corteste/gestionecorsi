@@ -23,6 +23,7 @@ public interface DAOCostants {
 	public static final String DELETE_CORSISTA = "delete from corsista where cod_corsista = ?";
 	//END
 	//CORSOCORSISTI
+	public static final String SELECT__CORSO_CORSISTA = "select cod_corso, cod_corsista from corso_corsista";
 	//END
 	//DOCENTE
 	//END
