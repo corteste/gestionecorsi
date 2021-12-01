@@ -24,7 +24,7 @@ public class DocenteBC {
 		try {
 			docente = DocenteDAO.getFactory().getModelByString(conn, codDocente);
 		} catch (SQLException sql) {
-			throw new DAOException(sql);
+			throw new SQLException();
 		}
 		
 		return docente;
