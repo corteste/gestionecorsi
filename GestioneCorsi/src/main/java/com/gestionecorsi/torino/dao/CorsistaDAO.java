@@ -86,7 +86,6 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants {
 
 	@Override
 	public void removeByModel(Connection conn, Corsista model) throws SQLException {
-		// TODO Auto-generated method stub
 		try {
 			PreparedStatement ps = conn.prepareStatement(DELETE_CORSISTA);
 			ps.setLong(1, model.getCodCorsista());
