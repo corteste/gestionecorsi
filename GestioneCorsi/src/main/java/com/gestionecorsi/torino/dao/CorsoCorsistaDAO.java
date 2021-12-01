@@ -13,9 +13,7 @@ import com.gestionecorsi.torino.model.CorsoCorsista;
  *
  */
 public class CorsoCorsistaDAO extends CorsoCorsistaDAOAdapter implements DAOCostants {
-	private ResultSet rs;
-	private Connection conn;
-	private Statement stmt;
+	
 	
 	private CorsoCorsistaDAO() {
 	}
@@ -26,19 +24,21 @@ public class CorsoCorsistaDAO extends CorsoCorsistaDAOAdapter implements DAOCost
 	}
 
 	@Override
-	public void createFromModel(Connection conn, CorsoCorsista model) {
+	public void createFromModel(Connection conn, CorsoCorsista model){
 		try {
-			conn.createStatement();
-			stmt.execute(SELECT__CORSO_CORSISTA);
+			ResultSet rs;
+			Statement stmt = conn.createStatement();
+			rs = stmt.executeQuery(SELECT__CORSO_CORSISTA);
 			rs.moveToInsertRow();
 			rs.updateLong(1, model.getCodCorsista());
 			rs.updateLong(2, model.getCodCorso());
 			rs.insertRow();
 			rs.moveToCurrentRow();
-			conn.commit();	
-		}catch (SQLException sql) {
-			sql.getMessage();
-		}	
+			conn.commit();
+		} catch(SQLException exc) {
+			exc.printStackTrace();
+			exc.getMessage();
+		}
 		
 	}
 }
