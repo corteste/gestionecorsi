@@ -21,7 +21,7 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants {
 	}
 
 	@Override
-	public void createFromModel(Connection conn, Corsista model) {
+	public void createFromModel(Connection conn, Corsista model) throws SQLException {
 		try {
 			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			ResultSet rs = stmt.executeQuery(SELECT_CORSISTI);
@@ -33,11 +33,11 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants {
 			rs.insertRow();
 			conn.commit();
 		} catch (SQLException exc) {
-			exc.printStackTrace();
+			throw exc;
 		}
 	}
 
-	public Corsista getByNumericalid(Connection conn, long codCorsista) {
+	public Corsista getByNumericalid(Connection conn, long codCorsista) throws SQLException {
 		Corsista corsista = null;
 		PreparedStatement ps;
 		try {
@@ -53,12 +53,12 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants {
 
 			}
 		} catch (SQLException exc) {
-			exc.printStackTrace();
+			throw exc;
 		}
 		return corsista;
 	}
 
-	public List<Corsista> getAll(Connection conn) {
+	public List<Corsista> getAll(Connection conn) throws SQLException {
 		List<Corsista> lista_corsisti = null;
 		try {
 			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -77,7 +77,7 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants {
 			rs.close();
 
 		} catch (SQLException exc) {
-			exc.printStackTrace();
+			throw exc;
 		}
 		return lista_corsisti;
 	}

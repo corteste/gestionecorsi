@@ -46,6 +46,7 @@ public interface DAOCostants {
 	
 	//SEQUENZE
 	public static final String SELECT_ID_CORSO = "SELECT CORSO_SEQ.NEXTVAL FROM DUAL";
+	public static final String SELECT_ID_CORSISTA = "SELECT CORSISTA_SEQ.NEXTVAL FROM DUAL";
 	//END
 
 }
