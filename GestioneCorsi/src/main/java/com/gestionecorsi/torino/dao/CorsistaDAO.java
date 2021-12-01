@@ -36,7 +36,7 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants{
 		}
 	}
 	
-	public  Corsista getByNumericalld(Connection conn,long codCorsista) {
+	public Corsista getByNumericalld(Connection conn,long codCorsista) {
 		  Corsista corsista=null;
 		  PreparedStatement ps;
 		try {
@@ -48,12 +48,12 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants{
 				corsista.setCodCorsista(rs.getInt(1));
 				corsista.setNomeCorsista(rs.getString(2));
 				corsista.setCognomeCorsista(rs.getString(3));
-				corsista.setPrecedentiFormativi(rs.getString(4));
-				
-			}
+				corsista.setPrecedentiFormativi(rs.getString(4));	
+			}	
 		}catch(SQLException exc) {
 			exc.printStackTrace();
 		}
+		return corsista;
 	}
 	
 	
