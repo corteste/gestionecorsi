@@ -1,15 +1,15 @@
 package com.gestionecorsi.torino.model;
 
 public class Corsista {
-	private int codCorsista;
+	private long codCorsista;
 	private String nomeCorsista;
 	private String cognomeCorsista;
 	private String precedentiFormativi;
 	
-	public int getCodCorsista() {
+	public long getCodCorsista() {
 		return codCorsista;
 	}
-	public void setCodCorsista(int codCorsista) {
+	public void setCodCorsista(long codCorsista) {
 		this.codCorsista = codCorsista;
 	}
 	public String getNomeCorsista() {
