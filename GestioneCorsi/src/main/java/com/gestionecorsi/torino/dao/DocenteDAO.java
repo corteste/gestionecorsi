@@ -22,10 +22,11 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 	
 	/**
 	 * Stefano Cortese
+	 * @throws SQLException 
 	 */
 	
 	@Override
-	public Docente getModelByString(Connection conn, String codDocente) {
+	public Docente getModelByString(Connection conn, String codDocente) throws SQLException {
 		Docente docente = null;
 		PreparedStatement ps;
 
@@ -42,11 +43,10 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 				docente.setNomeDocente(rs.getString(2));
 				docente.setCognomeDocente(rs.getString(3));
 				docente.setCvDocente(rs.getString(4));
-				
 			}
-
 		} catch (SQLException sql) {
 			sql.getMessage();
+			throw new SQLException();
 		}
 		
 		return docente;
@@ -80,7 +80,7 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 		} catch (SQLException sql) {
 			throw new SQLException(); // Manca la classe DAOException
 		}
- 		return ld;
+ 		return docente;
 	}
 	
 }
