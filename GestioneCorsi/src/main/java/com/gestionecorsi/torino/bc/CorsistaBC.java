@@ -56,5 +56,15 @@ public class CorsistaBC {
 			throw new SQLException(sql);
 		}
 	}
+	
+	public int getNCorsisti() throws SQLException {
+		int nCorsisti = 0;
+		try {
+			nCorsisti = CorsistaDAO.getFactory().getNCorsisti(conn);
+		} catch (SQLException sql) {
+			throw sql;
+		}
+		return nCorsisti;
+	}
 
 }
