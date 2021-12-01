@@ -27,7 +27,7 @@ class CorsoDAOTest {
 		c.setCostoCorso(1000);
 		c.setCommenti("A;J;J;F;");
 		c.setAulaCorso("A1");
-		c.setCodDocente("AAA");
+		c.setCodDocente("DOC1");
 		try {
 			c.setIdCorso(CorsoIdGenerator.getInstance().getNextId());
 			Connection conn = DBAccess.getConnection();
@@ -59,10 +59,50 @@ class CorsoDAOTest {
 		} 
 	}
 	
+	@Test
+	void getPopularCorso() {
+		try {
+			assertEquals(CorsoDAO.getFactory().getPopularCorso(DBAccess.getConnection()),"Corso 1");
+		} catch (ClassNotFoundException | SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			fail(e.getMessage());
+		} 
+	}
+	
+	@Test
+	void getDataLastCorso() {
+		try {
+			assertEquals(CorsoDAO.getFactory().getDataLastCorso(DBAccess.getConnection()).getNomeCorso(),"Pippo");
+		} catch (ClassNotFoundException | SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			fail(e.getMessage());
+		} 
+	}
+	
+	@Test
+	void getCountCommenti() {
+		try {
+			assertEquals(CorsoDAO.getFactory().getCountCommenti(DBAccess.getConnection(),7),4);
+		} catch (ClassNotFoundException | SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			fail(e.getMessage());
+		} 
+	}
+	
+	@Test
+	void getAvailableCorso() {
+		try {
+			assertFalse(CorsoDAO.getFactory().getAvailableCorso(DBAccess.getConnection()).isEmpty());
+		} catch (ClassNotFoundException | SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			fail(e.getMessage());
+		} 
+	}
+	
 	
 	@AfterAll
-  static void clean() {
-		
+  static void clean() throws ClassNotFoundException, SQLException, IOException {
+		CorsoDAO.getFactory().removeByModel(DBAccess.getConnection(), c);
 	}
 
 }

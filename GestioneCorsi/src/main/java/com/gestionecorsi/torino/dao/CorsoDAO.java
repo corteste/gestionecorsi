@@ -130,7 +130,7 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 		
 		if(rs.next()) {
 			c = new Corso ();
-			c.setNomeCorso(rs.getString(2));
+			c.setNomeCorso(rs.getString(1));
 		}
 		
 		return c.getNomeCorso();
@@ -142,9 +142,9 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 		// TODO Auto-generated method stub
 		Corso tmp = new Corso();
 		Statement st = conn.createStatement();
-		ResultSet rs = st.executeQuery(SELECT_CORSI);
+		ResultSet rs = st.executeQuery(SELECT_CORSO_LAST_DATE);
 		
-		for(;rs.next();)
+		if(rs.next())
 		{
 			
 			tmp.setIdCorso(rs.getLong(1));
