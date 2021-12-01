@@ -54,8 +54,8 @@ public class CorsoBC {
 		return  CorsoDAO.getFactory().getDataLastCorso(conn);
 	}
 	
-	public int getCountCommenti() {
-		return CorsoDAO.getFactory().getCountCommenti(conn);
+	public int getCountCommenti(long id) throws SQLException {
+		return CorsoDAO.getFactory().getCountCommenti(conn,id);
 	}
 	
 	public String getAvailableCorso() {
