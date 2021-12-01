@@ -73,28 +73,26 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 		{
 			ps = conn.prepareStatement(DELETE_CORSO_FROM_CORSISTA);
 			ps.setLong(1, model.getIdCorso());
-			rs = ps.executeQuery();
-			rs.next();
-			rs.deleteRow();
+		    ps.execute();
+			
 			
 			ps = conn.prepareStatement(DELETE_CORSO);
 			ps.setLong(1, model.getIdCorso());
-			rs = ps.executeQuery();
-			rs.next();
-			rs.deleteRow();
+			ps.execute();
+			
 			
 		}
 		else
 		{
 			ps.close();
-			rs.close();
 			ps = conn.prepareStatement(DELETE_CORSO);
 			ps.setLong(1, model.getIdCorso());
-			rs = ps.executeQuery();
-			rs.next();
-			rs.deleteRow();
+			ps.execute();
+			
 			
 		}
+		rs.close();
+		conn.commit();
 	}
 
 	@Override
