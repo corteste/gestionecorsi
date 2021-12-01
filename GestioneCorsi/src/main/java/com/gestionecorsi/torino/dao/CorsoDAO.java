@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -137,9 +138,26 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 
 
 
-	public Corso getDataLastCorso(Connection conn) {
+	public Corso getDataLastCorso(Connection conn) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		Corso tmp = new Corso();
+		Statement st = conn.createStatement();
+		ResultSet rs = st.executeQuery(SELECT_CORSI);
+		
+		for(;rs.next();)
+		{
+			
+			tmp.setIdCorso(rs.getLong(1));
+			tmp.setNomeCorso(rs.getString(2));
+			tmp.setDataInizio(new java.util.Date(rs.getDate(3).getTime()));
+			tmp.setDataFine(new java.util.Date(rs.getDate(4).getTime()));
+			tmp.setCostoCorso(rs.getDouble(5));
+			tmp.setCommenti(rs.getString(6));
+			tmp.setAulaCorso(rs.getString(7));
+			tmp.setCodDocente(rs.getString(8));
+			
+		}
+		return tmp;
 	}
 
 
@@ -157,9 +175,25 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 
 
 
-	public String getAvailableCorso() {
+	public List<String> getAvailableCorso(Connection conn) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		List<String>lc = new ArrayList<String>() ;
+		Statement st = conn.createStatement();
+		ResultSet rs = st.executeQuery(SELECT_GET_AVAILABLE_CORSO);
+		
+		for(;rs.next();)
+		{
+			String tmp = new String("");
+			tmp = " "+rs.getLong(1)+" "+rs.getString(2)+" "
+			         +new SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date(rs.getDate(3).getTime()))+" "
+					+new SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date(rs.getDate(4).getTime()))
+					+" "+rs.getDouble(5)+" "+rs.getString(6)+" "+rs.getString(7)+" "+rs.getString(8)+" "+rs.getInt(9);
+	
+		
+
+			lc.add(tmp);
+		}
+		return lc;
 	}
 
 
