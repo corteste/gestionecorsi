@@ -11,5 +11,4 @@ public interface CrudOperation<T> {
 	public T getModelByString(Connection conn,String id) throws SQLException;
 	public void removeByModel(Connection conn,T model) throws SQLException;
 	public List<T> getAll(Connection conn) throws SQLException;
-  
 }

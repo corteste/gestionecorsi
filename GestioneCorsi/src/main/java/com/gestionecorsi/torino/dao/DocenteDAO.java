@@ -3,6 +3,8 @@ package com.gestionecorsi.torino.dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
+
 import com.gestionecorsi.torino.dao.adapter.DocenteDAOAdapter;
 import com.gestionecorsi.torino.model.Docente;
 import java.sql.PreparedStatement;
@@ -48,12 +50,13 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 		
 		return docente;
 	}
+
 	
 	/**
 	 * Daniel Cobas
 	 */
 	@Override
-	public Docente[] getAll(Connection conn) throws SQLException {
+	public List<Docente> getAll(Connection conn) throws SQLException {
 		Docente[] docente = null;
 		try {
 			Statement stmt = conn.createStatement(

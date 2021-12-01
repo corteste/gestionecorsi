@@ -3,6 +3,7 @@ package com.gestionecorsi.torino.dao.adapter;
 import java.sql.Connection;
 import java.util.List;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.gestionecorsi.torino.dao.CrudOperation;
 import com.gestionecorsi.torino.model.Docente;
@@ -34,7 +35,11 @@ public abstract class DocenteDAOAdapter implements CrudOperation<Docente> {
 	}
 
 	@Override
+
+
+
 	public List<Docente> getAll(Connection conn) {
+
 		// TODO Auto-generated method stub
 		return null;
 	}
