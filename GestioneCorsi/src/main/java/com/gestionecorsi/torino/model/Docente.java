@@ -7,6 +7,9 @@ public class Docente {
 	private String cognomeDocente;
 	private String cvDocente;
 	
+	public Docente() {
+	}
+	
 	public long getCodDocente() {
 		return codDocente;
 	}
