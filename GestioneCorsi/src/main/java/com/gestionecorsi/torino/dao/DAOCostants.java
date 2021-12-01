@@ -12,6 +12,7 @@ public interface DAOCostants {
 			+ "FROM CORSO,CORSO_CORSITA\r\n"
 			+ "WHERE CORSO.COD_CORSO = CORSO_CORSISTA.COD_CORSO\r\n"
 			+ "AND CORSO_CORSISTA.COD_CORSISTA = ?";
+	public static final String SELECT_CORSO_BY_ID = "SELECT * FROM CORSO WHERE COD_CORSO = ?";
 	
 	public static final String DELETE_CORSO ="DELETE FROM CORSO WHERE COD_CORSO = ? ";
 	
