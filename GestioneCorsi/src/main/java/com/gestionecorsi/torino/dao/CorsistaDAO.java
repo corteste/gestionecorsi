@@ -36,7 +36,7 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants{
 		}
 	}
 	
-	public Corsista getByNumericalld(Connection conn,long codCorsista) {
+	public Corsista getByNumericalid(Connection conn,long codCorsista) {
 		  Corsista corsista=null;
 		  PreparedStatement ps;
 		try {
@@ -48,13 +48,43 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants{
 				corsista.setCodCorsista(rs.getInt(1));
 				corsista.setNomeCorsista(rs.getString(2));
 				corsista.setCognomeCorsista(rs.getString(3));
-				corsista.setPrecedentiFormativi(rs.getString(4));	
+				corsista.setPrecedentiFormativi(rs.getString(4));
+		
 			}	
 		}catch(SQLException exc) {
 			exc.printStackTrace();
 		}
 		return corsista;
 	}
+	
+	public List<Corsista> getAll(Connection conn){
+		List<Corsista> lista_corsisti=null;
+		try {
+			Statement stmt = conn.createStatement(
+					 ResultSet.TYPE_SCROLL_INSENSITIVE,
+					 ResultSet.CONCUR_READ_ONLY);
+					 ResultSet rs = stmt.executeQuery(SELECT_ARTICOLO);
+			rs.last();
+			lista_corsisti=new List<Corsista>();
+			rs.beforeFirst();
+			for(int i = 0; rs.next(); i++) {
+				 Corsista corsista=new Corsista();
+				 corsista.setCodCorsista(rs.getInt(1));
+				 corsista.setNomeCorsista(rs.getString(2));
+				 corsista.setCognomeCorsista(rs.getString(3));
+				 corsista.setPrecedentiFormativi(rs.getString(4));
+				 lista_corsisti.add(corsista);
+				 
+			}
+			rs.close();
+			
+		}catch(SQLException exc) {
+			exc.printStackTrace();
+		}
+		return lista_corsisti;
+	}
+	
+	
 	
 	
 	
