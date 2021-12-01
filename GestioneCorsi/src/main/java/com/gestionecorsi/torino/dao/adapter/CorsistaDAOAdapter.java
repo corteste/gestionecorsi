@@ -1,6 +1,7 @@
 package com.gestionecorsi.torino.dao.adapter;
 
 import java.sql.Connection;
+import java.util.List;
 
 import com.gestionecorsi.torino.dao.CrudOperation;
 import com.gestionecorsi.torino.model.Corsista;
@@ -32,7 +33,7 @@ public abstract class CorsistaDAOAdapter implements CrudOperation<Corsista> {
 	}
 
 	@Override
-	public Corsista[] getAll(Connection conn) {
+	public List<Corsista> getAll(Connection conn) {
 		// TODO Auto-generated method stub
 		return null;
 	}
