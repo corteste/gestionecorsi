@@ -28,18 +28,41 @@ class DocenteBCTest {
 			System.out.println(docente.getNomeDocente()+" "+ 
 							   docente.getCognomeDocente());
 		} catch (ClassNotFoundException | IOException | SQLException e) {
-			fail("Not yet implemented");
+			fail(e.getMessage());
 		}
 	}
 	
 	@Test
-	void TestGetAll() throws ClassNotFoundException, FileNotFoundException, IOException, SQLException {
+	void testGetAll() throws ClassNotFoundException, FileNotFoundException, IOException, SQLException {
 		try {
 			DocenteBC dBC = new DocenteBC();
 			List<Docente> docenti = dBC.getAll();
 			assertNotNull(docenti);
 		} catch (ClassNotFoundException | IOException | SQLException e) {
-			fail("Not yet implemented");
+			fail(e.getMessage());
+		}
+	}
+	
+	/**
+	 * @autor Stefano Cortese
+	 * @throws ClassNotFoundException
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	
+	@Test
+	void testDocenteMostCorsi() throws ClassNotFoundException, FileNotFoundException, IOException, SQLException {
+		try {
+			DocenteBC dBC = new DocenteBC();
+			String codDocente = dBC.getDocenteMostCorsi();
+			assertNotNull(codDocente,"Codice docente nullo");
+			Docente docente = dBC.getByString(codDocente);
+			assertNotNull(docente);
+			System.out.println(docente.getNomeDocente()+" "+ 
+							   docente.getCognomeDocente() + ": Docente con più corsi " );
+		} catch (ClassNotFoundException | IOException | SQLException e) {
+			fail(e.getMessage());
 		}
 	}
 
