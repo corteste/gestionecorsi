@@ -51,28 +51,30 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 		
 		return docente;
 	}
+
 	
 	/**
 	 * Daniel Cobas
 	 */
 	@Override
 	public List<Docente> getAll(Connection conn) throws SQLException {
-		List<Docente> ld = new ArrayList<Docente>();
-	
+		List<Docente> docente = null;
 		try {
 			Statement stmt = conn.createStatement(
 					ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_READ_ONLY);
-			ResultSet rs = stmt.executeQuery(SELECT_DOCENTE_BY_ID);
-			rs.isBeforeFirst();
+			ResultSet rs = stmt.executeQuery(SELECT_DOCENTI);
+			rs.last();
+			docente = new ArrayList<Docente>(rs.getRow());
+			rs.beforeFirst();
 			
-			for (; rs.next();) {
+			while (rs.next()) {
 				Docente d = new Docente();
-				d.setCodDocente(rs.getString(5));
-				d.setNomeDocente(rs.getString(30));
-				d.setCognomeDocente(rs.getString(30));
-				d.setCvDocente(rs.getString(100));
-				ld.add(d);
+				d.setCodDocente(rs.getString(1));
+				d.setNomeDocente(rs.getString(2));
+				d.setCognomeDocente(rs.getString(3));
+				d.setCvDocente(rs.getString(4));
+				docente.add(d);
 			}
 			rs.close();
 		} catch (SQLException sql) {
@@ -80,7 +82,5 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 		}
  		return ld;
 	}
-	
-	
 	
 }
