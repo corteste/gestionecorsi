@@ -1,4 +1,4 @@
-package test.gestionecorsi.torino.bc;
+package test.com.gestionecorsi.torino.bc;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,7 +36,7 @@ class CorsistaBCTest {
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		try {
-			cors.delete(corsista);
+			cors.removeByModel(corsista);
 			corsista = null;
 			System.out.println("Eliminato corsista");
 			DBAccess.closeConnection();
@@ -52,7 +52,7 @@ class CorsistaBCTest {
 	@Order(1)
 	void  testCreateFromModel() {
 		try {
-			cors.create(corsista);
+			cors.createFromModel(corsista);
 			System.out.println("Creato corsista");
 		} catch(SQLException exc) {
 			exc.printStackTrace();
@@ -75,7 +75,7 @@ class CorsistaBCTest {
 	@Order(3)
 	void testUpdateGetByID() {
 		try {
-			cors.getById(10);
+			cors.getByNumericalId(10);
 			System.out.println(corsista.getNomeCorsista());
 			System.out.println(corsista.getCognomeCorsista());
 		} catch(SQLException exc) {
