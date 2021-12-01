@@ -1,6 +1,7 @@
 package com.gestionecorsi.torino.dao.adapter;
 
 import java.sql.Connection;
+import java.util.List;
 
 import com.gestionecorsi.torino.dao.CrudOperation;
 
@@ -33,7 +34,7 @@ public abstract class CorsoCorsistaDAOAdapter implements CrudOperation<CorsoCors
 	}
 
 	@Override
-	public CorsoCorsista[] getAll(Connection conn) {
+	public List<CorsoCorsista> getAll(Connection conn) {
 		// TODO Auto-generated method stub
 		return null;
 	}
