@@ -17,7 +17,7 @@ public class DocenteBC {
 		conn = DBAccess.getConnection();
 	}
 	
-	public Docente getByString(String codDocente) {
+	public Docente getByString(String codDocente) throws SQLException {
 		Docente docente = null;
 		try {
 			docente = DocenteDAO.getFactory().getModelByString(conn, codDocente);
