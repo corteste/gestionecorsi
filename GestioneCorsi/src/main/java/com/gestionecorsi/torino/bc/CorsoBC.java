@@ -49,7 +49,7 @@ public class CorsoBC {
 
 	}
 	
-	public Corso getDataLastCorso() {
+	public Corso getDataLastCorso() throws SQLException {
 		
 		return  CorsoDAO.getFactory().getDataLastCorso(conn);
 	}
@@ -58,7 +58,7 @@ public class CorsoBC {
 		return CorsoDAO.getFactory().getCountCommenti(conn,id);
 	}
 	
-	public String getAvailableCorso() {
-		return CorsoDAO.getFactory().getAvailableCorso();
+	public List<String> getAvailableCorso() throws SQLException {
+		return CorsoDAO.getFactory().getAvailableCorso(conn);
 	}
 }
