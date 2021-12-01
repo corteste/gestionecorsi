@@ -37,7 +37,8 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants {
 		}
 	}
 
-	public Corsista getByNumericalid(Connection conn, long codCorsista) throws SQLException {
+	@Override
+	public Corsista getModelByNumericalId(Connection conn, long codCorsista) throws SQLException {
 		Corsista corsista = null;
 		PreparedStatement ps;
 		try {
@@ -58,6 +59,7 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants {
 		return corsista;
 	}
 
+	@Override
 	public List<Corsista> getAll(Connection conn) throws SQLException {
 		List<Corsista> lista_corsisti = null;
 		try {
@@ -80,6 +82,19 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants {
 			throw exc;
 		}
 		return lista_corsisti;
+	}
+
+	@Override
+	public void removeByModel(Connection conn, Corsista model) throws SQLException {
+		// TODO Auto-generated method stub
+		try {
+			PreparedStatement ps = conn.prepareStatement(DELETE_CORSISTA);
+			ps.setLong(1, model.getCodCorsista());
+			ps.execute();
+			conn.commit();
+		} catch (SQLException exc) {
+			throw exc;
+		}
 	}
 
 }
