@@ -2,7 +2,7 @@ package com.gestionecorsi.torino.model;
 
 public class Docente {
 	
-	private long codDocente;
+	private String codDocente;
 	private String nomeDocente;
 	private String cognomeDocente;
 	private String cvDocente;
@@ -10,10 +10,10 @@ public class Docente {
 	public Docente() {
 	}
 	
-	public long getCodDocente() {
+	public String getCodDocente() {
 		return codDocente;
 	}
-	public void setCodDocente(long codDocente) {
+	public void setCodDocente(String codDocente) {
 		this.codDocente = codDocente;
 	}
 	public String getNomeDocente() {

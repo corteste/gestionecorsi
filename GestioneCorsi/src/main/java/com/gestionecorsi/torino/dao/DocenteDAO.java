@@ -35,7 +35,7 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 			if (rs.next()) {
 				docente = new Docente();
 
-				docente.setCodDocente(rs.getLong(1));
+				docente.setCodDocente(rs.getString(1));
 				docente.setNomeDocente(rs.getString(2));
 				docente.setCognomeDocente(rs.getString(3));
 				docente.setCvDocente(rs.getString(4));
@@ -48,26 +48,40 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 		
 		return docente;
 	}
+<<<<<<< Updated upstream
 	
 	/**
 	 * @return  Dani
 	 */
 
+=======
+	/**
+	 * Daniel Cobas
+	 */
+>>>>>>> Stashed changes
 	@Override
-	public Docente[] getAll(Connection conn) {
+	public Docente[] getAll(Connection conn) throws SQLException {
 		Docente[] docente = null;
 		try {
 			Statement stmt = conn.createStatement(
 					ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_READ_ONLY);
-			ResultSet rs = stmt.executeQuery(SELECT_DOCENTE_BY_ID); // provisorio
+			ResultSet rs = stmt.executeQuery(SELECT_DOCENTE_BY_ID);
 			rs.last();
 			docente = new Docente[rs.getRow()];
 			rs.isBeforeFirst();
 			
-		}
-		finally{
-
+			for (int i = 0; rs.next(); i++) {
+				Docente d = new Docente();
+				d.setCodDocente(rs.getString(5));
+				d.setNomeDocente(rs.getString(30));
+				d.setCognomeDocente(rs.getString(30));
+				d.setCvDocente(rs.getString(100));
+				docente[i] = d;
+			}
+			rs.close();
+		} catch (SQLException sql) {
+			throw new DAOException(sql); // Manca la classe DAOException
 		}
  		return docente;
 	}

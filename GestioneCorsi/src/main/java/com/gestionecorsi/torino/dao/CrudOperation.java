@@ -1,6 +1,7 @@
 package com.gestionecorsi.torino.dao;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public interface CrudOperation<T> {
 	
@@ -8,6 +9,6 @@ public interface CrudOperation<T> {
 	public T getModelByNumericalId(Connection conn,long id);
 	public T getModelByString(Connection conn,String id);
 	public void removeByModel(Connection conn,T model);
-	public T[] getAll(Connection conn);
+	public T[] getAll(Connection conn) throws SQLException;
 
 }
