@@ -6,8 +6,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.ayoub.architecture.dao.ArticoloDAO;
-import com.ayoub.architecture.dao.DAOException;
 import com.gestionecorsi.torino.dao.DocenteDAO;
 import com.gestionecorsi.torino.dbaccess.DBAccess;
 import com.gestionecorsi.torino.model.Docente;
@@ -33,7 +31,7 @@ public class DocenteBC {
 	public List<Docente> getAll(){
 		List<Docente> docenti = null;
 		try {
-			docenti = DocenteDAO.getFactory().
+			docenti = DocenteDAO.getFactory().getAll(conn);
 		}
 			
 		return null;
