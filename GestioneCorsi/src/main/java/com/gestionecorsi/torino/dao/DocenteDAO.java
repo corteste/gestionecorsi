@@ -3,19 +3,19 @@ package com.gestionecorsi.torino.dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.List;
-
 import com.gestionecorsi.torino.dao.adapter.DocenteDAOAdapter;
 import com.gestionecorsi.torino.model.Docente;
-
-
-	/**
-	 * @return  Dani
-	 */
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
+
+	private DocenteDAO() {
+	}
+	
+	public static DocenteDAO getFactory() {
+		return new DocenteDAO();
+	}
 	
 	/**
 	 * Stefano Cortese
@@ -44,11 +44,14 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 
 		} catch (SQLException sql) {
 			sql.getMessage();
-			throw new Exception();
 		}
 		
 		return docente;
 	}
+	
+	/**
+	 * @return  Dani
+	 */
 
 	@Override
 	public Docente[] getAll(Connection conn) {
