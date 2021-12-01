@@ -120,9 +120,19 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 
 
 
-	public Corso getPopularCorso(Connection conn) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getPopularCorso(Connection conn) throws SQLException {
+		
+		Corso c = null;
+		
+		PreparedStatement ps = conn.prepareStatement(SELECT_POPULAR_CORSO);
+		ResultSet rs = ps.executeQuery();
+		
+		if(rs.next()) {
+			c = new Corso ();
+			c.setNomeCorso(rs.getString(1));
+		}
+		
+		return c.getNomeCorso();
 	}
 
 

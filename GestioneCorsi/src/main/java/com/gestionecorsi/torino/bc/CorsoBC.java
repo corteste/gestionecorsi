@@ -44,9 +44,9 @@ public class CorsoBC {
 		return lc;
 	}
 	
-	public String getPopularCorso() {
-		Corso tmp = CorsoDAO.getFactory().getPopularCorso(conn);
-		return tmp.getNomeCorso();
+	public String getPopularCorso() throws SQLException {
+		return CorsoDAO.getFactory().getPopularCorso(conn);
+
 	}
 	
 	public Corso getDataLastCorso() {
