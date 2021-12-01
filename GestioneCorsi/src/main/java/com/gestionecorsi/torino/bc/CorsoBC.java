@@ -43,5 +43,22 @@ public class CorsoBC {
 
 		return lc;
 	}
-
+	
+	public String getPopularCorso() {
+		Corso tmp = CorsoDAO.getFactory().getPopularCorso(conn);
+		return tmp.getNomeCorso();
+	}
+	
+	public Corso getDataLastCorso() {
+		
+		return  CorsoDAO.getFactory().getDataLastCorso(conn);
+	}
+	
+	public int getCountCommenti() {
+		return CorsoDAO.getFactory().getCountCommenti(conn);
+	}
+	
+	public String getAvailableCorso() {
+		return CorsoDAO.getFactory().getAvailableCorso();
+	}
 }

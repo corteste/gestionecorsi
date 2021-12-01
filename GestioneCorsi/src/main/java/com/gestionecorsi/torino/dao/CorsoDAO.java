@@ -117,6 +117,38 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 		}
 		return lc;
 	}
+
+
+
+	public Corso getPopularCorso(Connection conn) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public Corso getDataLastCorso(Connection conn) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public int getCountCommenti(Connection conn) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	public String getAvailableCorso() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
 	
 
 }
