@@ -10,31 +10,31 @@ import com.gestionecorsi.torino.model.Docente;
 public abstract class DocenteDAOAdapter implements CrudOperation<Docente> {
 
 	@Override
-	public void createFromModel(Connection conn, Docente model) {
+	public void createFromModel(Connection conn, Docente model)throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Docente getModelByNumericalId(Connection conn, long id) {
+	public Docente getModelByNumericalId(Connection conn, long id)throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Docente getModelByString(Connection conn, String id) {
+	public Docente getModelByString(Connection conn, String id) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void removeByModel(Connection conn, Docente model) {
+	public void removeByModel(Connection conn, Docente model) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<Docente> getAll(Connection conn) {
+	public List<Docente> getAll(Connection conn) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
