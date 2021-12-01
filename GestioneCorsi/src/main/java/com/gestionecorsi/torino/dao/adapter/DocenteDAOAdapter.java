@@ -35,10 +35,7 @@ public abstract class DocenteDAOAdapter implements CrudOperation<Docente> {
 	}
 
 	@Override
-
-
-
-	public List<Docente> getAll(Connection conn) {
+	public List<Docente> getAll(Connection conn) throws SQLException {
 
 		// TODO Auto-generated method stub
 		return null;
