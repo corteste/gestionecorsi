@@ -10,6 +10,11 @@ import com.gestionecorsi.torino.dao.DocenteDAO;
 import com.gestionecorsi.torino.dbaccess.DBAccess;
 import com.gestionecorsi.torino.model.Docente;
 
+/**
+ * 
+ * @author Ayoub
+ *
+ */
 public class DocenteBC {
 	private Connection conn;
 	
@@ -21,19 +26,29 @@ public class DocenteBC {
 		Docente docente = null;
 		try {
 			docente = DocenteDAO.getFactory().getModelByString(conn, codDocente);
-		} catch (SQLException sql) {
+		} catch (SQLException e) {
 			throw new SQLException();
 		}
-		
 		return docente;
 	}
 	
-	public List<Docente> getAll(){
+	public List<Docente> getAll() throws SQLException{
 		List<Docente> docenti = null;
 		try {
 			docenti = DocenteDAO.getFactory().getAll(conn);
+		} catch(SQLException sql) {
+			throw new SQLException();
+		}	
+		return docenti;
+	}
+	
+	public String getDocenteMostCorsi() throws SQLException {
+		String codiceDocente = null;
+		try {
+			codiceDocente = DocenteDAO.getFactory().getDocenteMostCorsi(conn);
+		} catch (SQLException e) {
+			throw new SQLException();
 		}
-			
-		return null;
+		return codiceDocente;
 	}
 }
