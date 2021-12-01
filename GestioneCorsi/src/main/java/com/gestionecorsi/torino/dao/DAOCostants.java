@@ -20,7 +20,7 @@ public interface DAOCostants {
 	//CORSISTI
 
 	public static final String SELECT_CORSISTI = "select cod_corsista, nome_corsista, cognome_corsista, precedenti_formativi from corsista";
-	public static final String SELECT_CORSISTA_BY_ID = "select cod_corsista, nome_corsista, cognome_corsista, precedenti_informativi from corsista where cod_corsista = ?";
+	public static final String SELECT_CORSISTA_BY_ID = "select cod_corsista, nome_corsista, cognome_corsista, precedenti_formativi from corsista where cod_corsista = ?";
 	public static final String DELETE_CORSISTA = "delete from corsista where cod_corsista = ?";
 
 	//END
@@ -45,6 +45,8 @@ public interface DAOCostants {
 	public static final String SELECT_GET_AVAILABLE_CORSO  ="SELECT CORSO.* ,POSTI_DISPONIBILI\r\n"
 			+ "FROM CORSO,CORSO_POSTI_DISPONIBILI\r\n"
 			+ "WHERE CORSO.COD_CORSO = CORSO_POSTI_DISPONIBILI.COD_CORSO\r\n";
+	public static final String SELECT_N_CORSISTI = "select count(*) from corsista";
+		
 	
 	public static final String SELECT_DOCENTE_MOST_CORSI = "SELECT COD_DOCENTE, COUNT(MATERIE) "
 			+ "FROM DOCENTE_CV "
