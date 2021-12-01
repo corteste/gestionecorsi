@@ -14,16 +14,16 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 
 	private DocenteDAO() {
 	}
-	
+
 	public static DocenteDAO getFactory() {
 		return new DocenteDAO();
 	}
-	
+
 	/**
 	 * @author Stefano Cortese
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
-	
+
 	@Override
 	public Docente getModelByString(Connection conn, String codDocente) throws SQLException {
 		Docente docente = null;
@@ -47,11 +47,10 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 			sql.getMessage();
 			throw new SQLException();
 		}
-		
+
 		return docente;
 	}
 
-	
 	/**
 	 * Daniel Cobas
 	 */
@@ -59,14 +58,12 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 	public List<Docente> getAll(Connection conn) throws SQLException {
 		List<Docente> docente = null;
 		try {
-			Statement stmt = conn.createStatement(
-					ResultSet.TYPE_SCROLL_INSENSITIVE,
-					ResultSet.CONCUR_READ_ONLY);
+			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = stmt.executeQuery(SELECT_DOCENTI);
 			rs.last();
 			docente = new ArrayList<Docente>(rs.getRow());
 			rs.beforeFirst();
-			
+
 			while (rs.next()) {
 				Docente d = new Docente();
 				d.setCodDocente(rs.getString(1));
@@ -79,7 +76,25 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 		} catch (SQLException sql) {
 			throw new SQLException(); // Manca la classe DAOException
 		}
- 		return docente;
+		return docente;
 	}
-	
+
+	public String getDocenteMostCorsi(Connection conn) throws SQLException {
+		String codiceDocente = null;
+		try {
+			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+
+			ResultSet rs = stmt.executeQuery(SELECT_DOCENTE_MOST_CORSI);
+			rs.beforeFirst();
+			if (rs.next()) {
+				codiceDocente = rs.getString(1);
+			}
+
+		} catch (SQLException sql) {
+			throw new SQLException();
+		}
+
+		return codiceDocente;
+	}
+
 }
