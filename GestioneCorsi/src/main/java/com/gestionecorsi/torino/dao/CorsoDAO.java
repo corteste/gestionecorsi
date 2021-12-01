@@ -66,7 +66,35 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 	@Override
 	public void removeByModel(Connection conn, Corso model) throws SQLException {
 		// TODO Auto-generated method stub
-		super.removeByModel(conn, model);
+		PreparedStatement ps = conn.prepareStatement(SELECT_CORSO_IN_CORSO_CORSISTA);
+		ps.setLong(1, model.getIdCorso());
+		ResultSet rs = ps.executeQuery();
+		if(rs.next())
+		{
+			ps = conn.prepareStatement(DELETE_CORSO_FROM_CORSISTA);
+			ps.setLong(1, model.getIdCorso());
+			rs = ps.executeQuery();
+			rs.next();
+			rs.deleteRow();
+			
+			ps = conn.prepareStatement(DELETE_CORSO);
+			ps.setLong(1, model.getIdCorso());
+			rs = ps.executeQuery();
+			rs.next();
+			rs.deleteRow();
+			
+		}
+		else
+		{
+			ps.close();
+			rs.close();
+			ps = conn.prepareStatement(DELETE_CORSO);
+			ps.setLong(1, model.getIdCorso());
+			rs = ps.executeQuery();
+			rs.next();
+			rs.deleteRow();
+			
+		}
 	}
 
 	@Override
