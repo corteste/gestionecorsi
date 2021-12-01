@@ -125,8 +125,8 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 		
 		Corso c = null;
 		
-		PreparedStatement ps = conn.prepareStatement(SELECT_POPULAR_CORSO);
-		ResultSet rs = ps.executeQuery();
+		Statement ps = conn.createStatement();
+		ResultSet rs = ps.executeQuery(SELECT_POPULAR_CORSO);
 		
 		if(rs.next()) {
 			c = new Corso ();
