@@ -95,6 +95,6 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants {
 		} catch (SQLException exc) {
 			throw exc;
 		}
-	}
+  }
 
 }
