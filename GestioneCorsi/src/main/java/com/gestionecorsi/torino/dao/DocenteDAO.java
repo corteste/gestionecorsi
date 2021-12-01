@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import com.gestionecorsi.torino.dao.adapter.DocenteDAOAdapter;
 import com.gestionecorsi.torino.model.Docente;
 
-public class DocenteDAO extends DocenteDAOAdapter {
+public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 	
 	/**
 	 * Stefano Cortese
