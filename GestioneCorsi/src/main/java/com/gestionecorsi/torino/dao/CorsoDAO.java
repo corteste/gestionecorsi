@@ -10,7 +10,7 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 	@Override
 	public void createFromModel(Connection conn, Corso model) {
 		// TODO Auto-generated method stub
-		super.createFromModel(conn, model);
+		
 	}
 
 	@Override
