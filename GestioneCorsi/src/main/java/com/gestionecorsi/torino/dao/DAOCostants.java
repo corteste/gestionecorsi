@@ -47,6 +47,15 @@ public interface DAOCostants {
 			+ "WHERE CORSO.COD_CORSO = CORSO_POSTI_DISPONIBILI.COD_CORSO\r\n";
 	public static final String SELECT_N_CORSISTI = "select count(*) from corsista";
 		
+	
+	public static final String SELECT_DOCENTE_MOST_CORSI = "SELECT COD_DOCENTE, COUNT(MATERIE) "
+			+ "FROM DOCENTE_CV "
+			+ "GROUP BY COD_DOCENTE "
+			+ "HAVING COUNT(MATERIE) = (SELECT MAX(COUNT(MATERIE)) "
+			+ "                        FROM DOCENTE_CV "
+			+ "                        GROUP BY COD_DOCENTE "
+			+ ")";
+	
 	//END
 	
 	//SEQUENZE

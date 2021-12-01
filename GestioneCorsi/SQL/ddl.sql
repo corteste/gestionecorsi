@@ -46,3 +46,10 @@ CONSTRAINT p_corso_corsista PRIMARY KEY (cod_corso, cod_corsista)
 
 CREATE sequence corso_seq;
 CREATE sequence corsista_seq;
+
+-- VIEW
+
+CREATE OR REPLACE VIEW DOCENTE_CV AS 
+SELECT DISTINCT COD_DOCENTE,regexp_substr(DOCENTE.CV_DOCENTE, '[^;]+', 1, LEVEL) MATERIE
+FROM DOCENTE
+CONNECT BY regexp_substr(DOCENTE.CV_DOCENTE, '[^;]+', 1, LEVEL) IS NOT NULL;
