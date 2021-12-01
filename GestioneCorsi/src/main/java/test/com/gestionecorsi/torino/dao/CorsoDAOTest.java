@@ -42,6 +42,7 @@ class CorsoDAOTest {
 		try {
 			List<Corso> lc = CorsoDAO.getFactory().getAll(DBAccess.getConnection());
 			assertNotNull(lc);
+			assertFalse(lc.isEmpty());
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			// TODO Auto-generated catch block
 			fail(e.getMessage());
