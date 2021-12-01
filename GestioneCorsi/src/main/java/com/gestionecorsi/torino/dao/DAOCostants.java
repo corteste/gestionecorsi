@@ -18,6 +18,7 @@ public interface DAOCostants {
 	public static final String DELETE_CORSO_FROM_CORSISTA = "DELETE FROM CORSO_CORSISTA WHERE COD_CORSO =? ";
 	//END
 	//CORSISTI
+
 	public static final String SELECT_CORSISTI = "select cod_corsista, nome_corsista, cognome_corsista, precedenti_formativi from corsista";
 	public static final String SELECT_CORSISTA_BY_ID = "select cod_corsista, nome_corsista, cognome_corsista, precedenti_informativi from corsista where cod_corsista = ?";
 	public static final String DELETE_CORSISTA = "delete from corsista where cod_corsista = ?";
@@ -28,6 +29,7 @@ public interface DAOCostants {
 	//END
 	//DOCENTE
 	public static final String SELECT_DOCENTE_BY_ID = "SELECT cod_docente, nome_docente, cognome_docente, cv_docente FROM Docente WHERE cod_docente = ?";
+	public static final String SELECT_DOCENTI = "SELECT cod_docente, nome_docente, cognome_docente, cv_docente FROM Docente";
 	//END
 	//LOGIN_ADMIN
 	//END

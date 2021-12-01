@@ -4,9 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
-import com.ayoub.architecture.dao.ArticoloDAO;
-import com.ayoub.architecture.dao.DAOException;
 import com.gestionecorsi.torino.dao.DocenteDAO;
 import com.gestionecorsi.torino.dbaccess.DBAccess;
 import com.gestionecorsi.torino.model.Docente;
@@ -18,7 +17,7 @@ public class DocenteBC {
 		conn = DBAccess.getConnection();
 	}
 	
-	public Docente getByString(String codDocente) {
+	public Docente getByString(String codDocente) throws SQLException {
 		Docente docente = null;
 		try {
 			docente = DocenteDAO.getFactory().getModelByString(conn, codDocente);
@@ -27,5 +26,14 @@ public class DocenteBC {
 		}
 		
 		return docente;
+	}
+	
+	public List<Docente> getAll(){
+		List<Docente> docenti = null;
+		try {
+			docenti = DocenteDAO.getFactory().getAll(conn);
+		}
+			
+		return null;
 	}
 }
