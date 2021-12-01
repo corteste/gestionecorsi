@@ -13,6 +13,9 @@ import com.gestionecorsi.torino.model.Docente;
 
 /**
  * Marco Placentino
+ * 
+ * @author Ayoub
+ *
  */
 public class DocenteBC {
 	private Connection conn;
@@ -28,14 +31,24 @@ public class DocenteBC {
 		return docente;
 	}
 	
+	
 	public List<Docente> getAll() throws SQLException{
-		List<Docente> lista_docente=new ArrayList<>();
+		List<Docente> docenti = null;
 		try {
-			lista_docente=DocenteDAO.getFactory().getAll(conn);
-		}catch(SQLException sql) {
+			docenti = DocenteDAO.getFactory().getAll(conn);
+		} catch(SQLException sql) {
+			throw new SQLException();
+		}	
+		return docenti;
+	}
+	
+	public String getDocenteMostCorsi() throws SQLException {
+		String codiceDocente = null;
+		try {
+			codiceDocente = DocenteDAO.getFactory().getDocenteMostCorsi(conn);
+		} catch (SQLException e) {
 			throw new SQLException();
 		}
-		return lista_docente;
+		return codiceDocente;
 	}
-
 }

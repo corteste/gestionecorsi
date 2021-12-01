@@ -98,10 +98,7 @@ GROUP BY COD_DOCENTE
 HAVING COUNT(MATERIE) = (SELECT MAX(COUNT(MATERIE))
                         FROM DOCENTE_CV
                         GROUP BY COD_DOCENTE
-                        
-                        )
-;
-
+                        );
 --END 7
 
 --8 CONTROLLATA
