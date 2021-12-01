@@ -48,17 +48,10 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 		
 		return docente;
 	}
-<<<<<<< Updated upstream
 	
-	/**
-	 * @return  Dani
-	 */
-
-=======
 	/**
 	 * Daniel Cobas
 	 */
->>>>>>> Stashed changes
 	@Override
 	public Docente[] getAll(Connection conn) throws SQLException {
 		Docente[] docente = null;
@@ -81,7 +74,7 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 			}
 			rs.close();
 		} catch (SQLException sql) {
-			throw new DAOException(sql); // Manca la classe DAOException
+			throw new SQLException(); // Manca la classe DAOException
 		}
  		return docente;
 	}
