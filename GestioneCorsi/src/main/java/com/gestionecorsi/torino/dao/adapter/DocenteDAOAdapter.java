@@ -1,6 +1,7 @@
 package com.gestionecorsi.torino.dao.adapter;
 
 import java.sql.Connection;
+import java.util.List;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -34,10 +35,13 @@ public abstract class DocenteDAOAdapter implements CrudOperation<Docente> {
 	}
 
 	@Override
-	public List<Docente> getAll(Connection conn) throws SQLException {
+
+
+
+	public List<Docente> getAll(Connection conn) {
+
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-
 }

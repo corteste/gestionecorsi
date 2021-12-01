@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.ayoub.architecture.dao.ArticoloDAO;
 import com.ayoub.architecture.dao.DAOException;
@@ -23,9 +24,18 @@ public class DocenteBC {
 		try {
 			docente = DocenteDAO.getFactory().getModelByString(conn, codDocente);
 		} catch (SQLException sql) {
-			throw new DAOException(sql);
+			throw new SQLException();
 		}
 		
 		return docente;
+	}
+	
+	public List<Docente> getAll(){
+		List<Docente> docenti = null;
+		try {
+			docenti = DocenteDAO.getFactory().
+		}
+			
+		return null;
 	}
 }

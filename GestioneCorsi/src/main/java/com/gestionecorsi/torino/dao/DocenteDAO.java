@@ -50,10 +50,11 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 		
 		return docente;
 	}
+
+	
 	/**
 	 * Daniel Cobas
 	 */
-	
 	@Override
 	public List<Docente> getAll(Connection conn) throws SQLException {
 		Docente[] docente = null;
@@ -76,7 +77,7 @@ public class DocenteDAO extends DocenteDAOAdapter implements DAOCostants {
 			}
 			rs.close();
 		} catch (SQLException sql) {
-			throw new DAOException(sql); // Manca la classe DAOException
+			throw new SQLException(); // Manca la classe DAOException
 		}
  		return docente;
 	}
