@@ -95,5 +95,16 @@ public class CorsistaDAO extends CorsistaDAOAdapter implements DAOCostants {
 			throw exc;
 		}
 	}
+	
+	public int getNCorsisti(Connection conn) throws SQLException {
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT_N_CORSISTI);
+			rs.next();
+			return rs.getInt(1);
+		} catch (SQLException exc) {
+			throw exc;
+		}
+	}
 
 }

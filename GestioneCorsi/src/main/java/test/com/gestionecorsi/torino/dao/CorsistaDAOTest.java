@@ -100,5 +100,17 @@ class CorsistaDAOTest {
 			fail(exc.getMessage());
 		}
 	}
+	
+	@Test
+	@Order(5)
+	void testGetNCorsisti() {
+		try {
+			int nCorsisti = CorsistaDAO.getFactory().getNCorsisti(conn);
+			assertEquals(1, nCorsisti);
+		} catch (SQLException exc) {
+			exc.printStackTrace();
+			fail(exc.getMessage());
+		}
+	}
 
 }

@@ -45,6 +45,7 @@ public interface DAOCostants {
 	public static final String SELECT_GET_AVAILABLE_CORSO  ="SELECT CORSO.* ,POSTI_DISPONIBILI\r\n"
 			+ "FROM CORSO,CORSO_POSTI_DISPONIBILI\r\n"
 			+ "WHERE CORSO.COD_CORSO = CORSO_POSTI_DISPONIBILI.COD_CORSO\r\n";
+	public static final String SELECT_N_CORSISTI = "select count(*) from corsista";
 		
 	//END
 	
