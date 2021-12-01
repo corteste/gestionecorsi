@@ -24,6 +24,7 @@ public interface DAOCostants {
 	//CORSOCORSISTI
 	//END
 	//DOCENTE
+	
 	//END
 	//LOGIN_ADMIN
 	//END
