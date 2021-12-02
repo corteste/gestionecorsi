@@ -1,7 +1,6 @@
 package com.gestionecorsi.torino.dao.adapter;
 
 import java.sql.Connection;
-import java.util.List;
 import java.sql.SQLException;
 import java.util.List;
 

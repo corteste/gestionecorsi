@@ -36,4 +36,18 @@ public class AdminFacade {
 		DocenteBC dBC = new DocenteBC();
 		return dBC.getAll();
 	}
+	
+	/**
+	 * 
+	 * @return
+	 * @author Stefano Cortese
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	public String getDocenteMostCorsi() throws SQLException, ClassNotFoundException, FileNotFoundException, IOException {
+		DocenteBC dBC = new DocenteBC();
+		return dBC.getDocenteMostCorsi();
+	}
 }
