@@ -11,9 +11,8 @@ import com.gestionecorsi.torino.dbaccess.DBAccess;
 import com.gestionecorsi.torino.model.Docente;
 
 /**
- * Marco Placentino
  * 
- * @author Ayoub
+ * @author Ayoub, Marco Placentino
  *
  */
 public class DocenteBC {
@@ -49,5 +48,13 @@ public class DocenteBC {
 			throw new SQLException();
 		}
 		return codiceDocente;
+	}
+	
+	public void closeConnection() throws SQLException {
+		try {
+			DBAccess.closeConnection();
+		} catch (SQLException sql) {
+			throw sql;
+		}
 	}
 }
