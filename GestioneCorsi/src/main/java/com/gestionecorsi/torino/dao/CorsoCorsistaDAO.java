@@ -1,6 +1,7 @@
 package com.gestionecorsi.torino.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,7 +20,7 @@ public class CorsoCorsistaDAO extends CorsoCorsistaDAOAdapter implements DAOCost
 	}
 	
 	
-	public CorsoCorsistaDAO getFactory(){
+	public static CorsoCorsistaDAO getFactory(){
 		return new CorsoCorsistaDAO();
 	}
 
@@ -40,5 +41,18 @@ public class CorsoCorsistaDAO extends CorsoCorsistaDAOAdapter implements DAOCost
 			exc.getMessage();
 		}
 		
+	}
+	
+	@Override
+	public void removeByModel(Connection conn, CorsoCorsista model) throws SQLException {
+		try {
+			PreparedStatement ps = conn.prepareStatement(DELETE__CORSO_CORSISTA);
+			ps.setLong(1, model.getCodCorso());
+			ps.setLong(2, model.getCodCorsista());
+			ps.execute();
+			conn.commit();
+		} catch (SQLException exc) {
+			throw exc;
+		}
 	}
 }
