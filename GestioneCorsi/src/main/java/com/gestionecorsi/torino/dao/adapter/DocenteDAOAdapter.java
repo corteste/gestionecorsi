@@ -7,6 +7,7 @@ import java.util.List;
 import com.gestionecorsi.torino.dao.CrudOperation;
 import com.gestionecorsi.torino.model.Docente;
 
+
 public abstract class DocenteDAOAdapter implements CrudOperation<Docente> {
 
 	@Override
