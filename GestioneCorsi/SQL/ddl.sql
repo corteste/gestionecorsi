@@ -48,6 +48,9 @@ CREATE sequence corso_seq;
 CREATE sequence corsista_seq;
 
 -- VIEW (da inserire su cmd)
+--PIPPO
+
+
 
 CREATE OR REPLACE VIEW DOCENTE_CV AS 
 SELECT DISTINCT COD_DOCENTE,regexp_substr(DOCENTE.CV_DOCENTE, '[^;]+', 1, LEVEL) MATERIE

@@ -27,11 +27,11 @@ public class CorsoBC {
 		CorsoDAO.getFactory().createFromModel(conn, model);
 		
 	}
-	public Corso getModelByNumericalId(Connection conn, long id) throws SQLException {
+	public Corso getModelByNumericalId( long id) throws SQLException {
 		// TODO Auto-generated method stub
 		return CorsoDAO.getFactory().getModelByNumericalId(conn, id);
 	}
-	public void removeByModel(Connection conn , Corso model) throws SQLException {
+	public void removeByModel( Corso model) throws SQLException {
 		CorsoDAO.getFactory().removeByModel(conn, model);
 	}
 
