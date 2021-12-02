@@ -163,14 +163,13 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 
 
 	public int getCountCommenti(Connection conn, long id)throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(SELECT_COMMENTI_CORSO);
-		ps.setLong(1, id);
-		ResultSet rs = ps.executeQuery();
-		int count = 0;
-		for(;rs.next();) {
-			count=rs.getInt(1);
-		}
-		return count;
+		int nc = 0 ;
+		for(Corso c : getAll(conn))
+		nc = c.getCommenti().split(";").length+nc;
+		
+		
+		
+		return nc;
 	}
 
 
@@ -195,7 +194,20 @@ public class CorsoDAO extends CorsoDAOAdapter  implements DAOCostants{
 		}
 		return lc;
 	}
+	
+	public double getAvgLength(Connection conn) throws SQLException {
+		double d = -1 ;
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(SELECT_AVG_LENGTH_CORSO);
 
+			
+			if(rs.next())
+				d = rs.getDouble(1);
+			
+			
+	
+		return d;
+	}
 
 
 
