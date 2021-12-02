@@ -26,6 +26,7 @@ public interface DAOCostants {
 	//END
 	//CORSOCORSISTI
 	public static final String SELECT__CORSO_CORSISTA = "select cod_corso, cod_corsista from corso_corsista";
+	public static final String DELETE__CORSO_CORSISTA = "delete from corso_corsista where cod_corso = ? AND cod_corsista= ?";
 	//END
 	//DOCENTE
 	public static final String SELECT_DOCENTE_BY_ID = "SELECT cod_docente, nome_docente, cognome_docente, cv_docente FROM Docente WHERE cod_docente = ?";
