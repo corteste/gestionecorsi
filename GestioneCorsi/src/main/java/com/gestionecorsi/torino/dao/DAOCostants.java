@@ -63,5 +63,8 @@ public interface DAOCostants {
 	public static final String SELECT_ID_CORSO = "SELECT CORSO_SEQ.NEXTVAL FROM DUAL";
 	public static final String SELECT_ID_CORSISTA = "SELECT CORSISTA_SEQ.NEXTVAL FROM DUAL";
 	//END
+	
+	//ADMIN
+	public static final String SELECT_PASSWORD_ADMIN="SELECT * FROM ADMIN WHERE COD_ADMIN=? ";
 
 }
